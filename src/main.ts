@@ -1,6 +1,6 @@
 console.log("start");
 
-const computeAngle = (i, samples, multiplicationFactor) => {
+const computeAngle = (i, samples, multiplicationFactor?) => {
   if (multiplicationFactor === undefined) {
     multiplicationFactor = 1;
   }
@@ -13,13 +13,22 @@ const computePointCoordinate = (angle) => {
   return { x, y };
 };
 
+const querySelector = (cssSelector: string) => {
+  const elt = document.querySelector(cssSelector);
+  if (elt === null) {
+    throw new Error("Cannot find selector: " + cssSelector);
+  }
+  return elt;
+};
+
 const samples = 100;
 const multiplicationFactor = 3;
 
 const svgns = "http://www.w3.org/2000/svg";
 
-const container = document.querySelector("svg g.samples");
-const lineContainer = document.querySelector("svg g.lines");
+const container = querySelector("svg g.samples");
+
+const lineContainer = querySelector("svg g.lines");
 
 const x0 = 50;
 const y0 = 50;
@@ -34,9 +43,9 @@ for (let i = 0; i < samples; i++) {
   const { x, y } = computePointCoordinate(angle);
 
   const sample = document.createElementNS(svgns, "circle");
-  sample.setAttributeNS(null, "cx", x);
-  sample.setAttributeNS(null, "cy", y);
-  sample.setAttributeNS(null, "r", r);
+  sample.setAttributeNS(null, "cx", `${x}`);
+  sample.setAttributeNS(null, "cy", y.toString());
+  sample.setAttributeNS(null, "r", r + "");
   container.appendChild(sample);
 }
 
