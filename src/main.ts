@@ -1,9 +1,6 @@
 console.log("start");
 
-const computeAngle = (i, samples, multiplicationFactor?) => {
-  if (multiplicationFactor === undefined) {
-    multiplicationFactor = 1;
-  }
+const computeAngle = (i, samples, multiplicationFactor = 1) => {
   return i * ((2 * Math.PI) / samples) * multiplicationFactor - Math.PI / 2;
 };
 
