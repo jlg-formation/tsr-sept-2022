@@ -10,7 +10,7 @@ const computeAngle = (i, samples, multiplicationFactor) => {
 const computePointCoordinate = (angle) => {
   const x = x0 + r0 * Math.cos(angle);
   const y = y0 + r0 * Math.sin(angle);
-  return { x: x, y: y };
+  return { x, y };
 };
 
 const samples = 100;
