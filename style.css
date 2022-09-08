@@ -9,3 +9,7 @@ circle {
   stroke: black;
   stroke-width: 0.02em;
 }
+
+.samples circle {
+  fill: black;
+}
