@@ -1,6 +1,10 @@
 $width: 50em;
 $color: blue;
 
+* {
+  box-sizing: border-box;
+}
+
 svg {
   width: $width;
   height: 30em;
@@ -19,5 +23,31 @@ svg {
   .lines line {
     stroke: $color;
     stroke-width: 0.02em;
+  }
+}
+
+div.command {
+  width: $width;
+  height: 10em;
+  border: 0.1em solid $color;
+
+  padding: 0.5em;
+
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  gap: 0.5em;
+
+  label {
+    width: 100%;
+  }
+
+  input {
+    width: 100%;
+  }
+
+  button {
+    margin-top: 1em;
+    padding: 0.5em 1em;
   }
 }

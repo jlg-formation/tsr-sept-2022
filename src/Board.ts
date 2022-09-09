@@ -6,6 +6,11 @@ const svgns = "http://www.w3.org/2000/svg";
 export class Board {
   config: BoardConfig;
 
+  clean() {
+    querySelector("svg g.samples").innerHTML = "";
+    querySelector("svg g.lines").innerHTML = "";
+  }
+
   draw() {
     const container = querySelector("svg g.samples");
 
@@ -47,6 +52,11 @@ export class Board {
       const p2 = computePointCoordinates(angle2);
       drawLine(p1, p2);
     }
+  }
+
+  redraw() {
+    this.clean();
+    this.draw();
   }
 
   setConfig(config: BoardConfig) {
