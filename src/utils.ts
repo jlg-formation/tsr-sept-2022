@@ -37,3 +37,11 @@ export const querySelector = <T extends Element>(
 export const setNbrAttribute = (elt: Element, key: string, value: number) => {
   elt.setAttributeNS(null, key, value.toString());
 };
+
+type millisecond = number;
+
+export const sleep = (delay: millisecond) => {
+  return new Promise<void>((resolve) => {
+    setTimeout(resolve, delay);
+  });
+};
