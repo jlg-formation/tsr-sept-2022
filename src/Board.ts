@@ -1,3 +1,4 @@
+import { Component } from "./decorators/Component";
 import { BoardConfig } from "./interfaces/BoardConfig";
 import { Point } from "./interfaces/Point";
 import {
@@ -9,6 +10,9 @@ import {
 
 const svgns = "http://www.w3.org/2000/svg";
 
+@Component({
+  html: "asdfasd",
+})
 export class Board {
   config: BoardConfig = {
     samples: 1,
