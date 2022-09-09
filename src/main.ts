@@ -1,6 +1,6 @@
 import "./style.scss";
 
-import { computeAngle, computePointCoordinate, querySelector } from "./utils";
+import { computeAngle, computePointCoordinates, querySelector } from "./utils";
 
 console.log("start");
 
@@ -19,7 +19,7 @@ for (let i = 0; i < samples; i++) {
   console.log("i: ", i);
 
   const angle = computeAngle(i, samples);
-  const { x, y } = computePointCoordinate(angle);
+  const { x, y } = computePointCoordinates(angle);
 
   const sample = document.createElementNS(svgns, "circle");
   sample.setAttributeNS(null, "cx", `${x}`);
@@ -40,8 +40,8 @@ const drawLine = (p1, p2) => {
 for (let i = 0; i < samples; i++) {
   // draw a line between i and i * multiplicationFactor
   const angle1 = computeAngle(i, samples);
-  const p1 = computePointCoordinate(angle1);
+  const p1 = computePointCoordinates(angle1);
   const angle2 = computeAngle(i, samples, multiplicationFactor);
-  const p2 = computePointCoordinate(angle2);
+  const p2 = computePointCoordinates(angle2);
   drawLine(p1, p2);
 }
