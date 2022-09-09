@@ -14,10 +14,10 @@ export class Command {
       const elt = querySelector(`div.command label.${key} span`);
       elt.innerHTML = this.config[key].toString();
 
-      const sliderElt = querySelector(`div.command label.${key} input`);
-      if (!(sliderElt instanceof HTMLInputElement)) {
-        throw new Error("sliderElt is not input elt");
-      }
+      const sliderElt = querySelector(
+        `div.command label.${key} input`,
+        HTMLInputElement
+      );
       sliderElt.value = this.config[key].toString();
     }
   }
