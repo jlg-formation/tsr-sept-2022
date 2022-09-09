@@ -1,11 +1,33 @@
 import { BoardConfig } from "./interfaces/BoardConfig";
 import { querySelector } from "./utils";
 
+type CommandCallback = (newConfig: BoardConfig) => void;
+
 export class Command {
   config: BoardConfig;
+  callback: CommandCallback;
 
-  onUpdate(arg0: (newConfig: any) => void) {
-    throw new Error("Method not implemented.");
+  constructor() {
+    this.addListeners();
+  }
+
+  addListeners() {
+    const boardConfigkeys = ["samples", "multiplicationFactor"];
+    for (const key of boardConfigkeys) {
+      const input = querySelector(
+        `div.command label.${key} input`,
+        HTMLInputElement
+      );
+      input.addEventListener("input", (event) => {
+        this.config[key] = input.value;
+        this.render();
+        this.callback(this.config);
+      });
+    }
+  }
+
+  onUpdate(callback: CommandCallback) {
+    this.callback = callback;
   }
 
   render() {
@@ -25,5 +47,6 @@ export class Command {
   setConfig(config: BoardConfig) {
     this.config = config;
     this.render();
+    this.callback?.(this.config);
   }
 }
