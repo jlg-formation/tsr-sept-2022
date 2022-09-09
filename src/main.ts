@@ -1,8 +1,6 @@
-import {
-  computeAngle,
-  computePointCoordinate,
-  querySelector,
-} from "./utils.js";
+import "./style.css";
+
+import { computeAngle, computePointCoordinate, querySelector } from "./utils";
 
 console.log("start");
 
