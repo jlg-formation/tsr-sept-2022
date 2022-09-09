@@ -8,7 +8,7 @@ console.log("start");
 const board = new Board();
 const config: BoardConfig = {
   samples: 100,
-  multiplicationFactor: 100,
+  multiplicationFactor: 3,
 };
 board.setConfig(config);
 board.draw();
