@@ -1,4 +1,4 @@
-import "./style.css";
+import "./style.scss";
 
 import { computeAngle, computePointCoordinate, querySelector } from "./utils";
 
